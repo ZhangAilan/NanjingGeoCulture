@@ -1,0 +1,12 @@
+/* 下拉式菜单内容 */
+.dropdown-item {
+    font-size: 20px;
+    color: black;
+    text-align: center;
+}
+
+/* 主页面地图样式 */
+#map{
+    height: 100%;
+    width: 100%;
+}
