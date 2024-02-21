@@ -28,7 +28,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item" style="width: 30px;">
-                        <a class="nav-link" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample"><i class="fa fa-bars" style="font-size: 30px; color: white;"></i></a>
+                        <a class="nav-link" data-bs-toggle="offcanvas" href="#offcanvasMenu" role="button" aria-controls="offcanvasExample"><i class="fa fa-bars" style="font-size: 30px; color: white;"></i></a>
                     </li>
                     <li class="nav-item" style="width: 30px;"></li>
                         <a class="nav-link" href="#">
@@ -36,7 +36,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" style="font-size: 20px; color: white;">NanjingGeoCulture</a>
+                        <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#myModal" style="font-size: 20px; color: white;">NanjingGeoCulture</a>
                     </li>
                 </ul>
             
@@ -69,7 +69,15 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 20px; color: white;">要素</a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown3">
-                            <!-- 下拉菜单内容 -->
+                            <a class="dropdown-item" href="#" onclick="addGeoJSONLayer('static/feature/region.json')" style="font-size: 20px; color: black; text-align: center;">行政区划</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#" style="font-size: 20px; color: black; text-align: center;">交通线路</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#" style="font-size: 20px; color: black; text-align: center;">高等院校</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#" style="font-size: 20px; color: black; text-align: center;">名胜古迹</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#" style="font-size: 20px; color: black; text-align: center;">博物馆</a>
                         </div>
                     </li>
                     <li class="nav-item dropdown">
@@ -79,7 +87,7 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fa fa-user" style="font-size: 30px; color: white;"></i></a>
+                        <a class="nav-link" data-bs-toggle="offcanvas" href="#offcanvasUser" role="button" aria-controls="offcanvasExample"><i class="fa fa-user" style="font-size: 30px; color: white;"></i></a>
                     </li>
                 </ul>
             </div>
@@ -90,12 +98,11 @@
     <div id="mapid" style="height: 100vh;"></div>
 
     <!-- 菜单的侧边栏 -->
-    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasMenu" aria-labelledby="offcanvasExampleLabel">
         <div class="offcanvas-header">
             <h5 class="offcanvas-title" id="offcanvasExampleLabel" style="font-size: 30px;">
                 <img class="rounded-circle" src="{% static 'images/ZifengTower.jpg' %}" style="margin-right: 10px; width: 30px; height: 30px;">概况其他功能
-            </h5>
-            
+            </h5>    
         </div>
         <div class="offcanvas-body">
             <div style="font-size: 18px;">
@@ -110,6 +117,22 @@
         </div>
     </div>
 
+    <!-- 图标模态框 -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    写下对于本项目的介绍
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 用户的侧边栏 -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasUser" aria-labelledby="offcanvasExampleLabel">
+
+    </div>
+
     <!-- 引入Bootstrap的JavaScript文件（jQuery必须在Bootstrap之前引入） -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
@@ -121,7 +144,7 @@
     <!-- 引入Leaflet的JavaScript文件 -->
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
-    <!-- 更改底图 -->
-    <script src="{% static 'js/basemap_change.js' %}"></script>
+    <!-- 更改底图/专题/要素 -->
+    <script src="{% static 'js/map_change.js' %}"></script>
 </body>
 </html>

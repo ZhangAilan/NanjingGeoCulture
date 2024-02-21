@@ -1,6 +1,8 @@
+//创建初始底图
 var basemap = L.map('mapid').setView([32.0603, 118.7969], 13); 
 console.log("BaseMap has been created.")
 
+//底图选项
 var map_initial =L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
             maxZoom: 19,
         }).addTo(basemap);
@@ -25,7 +27,7 @@ var map5=L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png
             maxZoom: 19,
         });
 
-//切换地图
+//切换底图
 function changeMap(mapType){
     basemap.eachLayer(function (layer) {
         basemap.removeLayer(layer);
@@ -53,4 +55,22 @@ function changeMap(mapType){
             break;
     }
     console.log("Map has been changed.")
+}
+
+
+//导航栏：要素
+var geoJSONLayer;
+
+function addGeoJSONLayer(filepath){
+    console.log("GeoJSON is being added.")
+    if(geoJSONLayer){
+        basemap.removeLayer(geoJSONLayer);
+        console.log("GeoJSON has been removed.")
+    }
+    fetch(filepath)
+        .then(response => response.json())
+        .then(data => {
+            geoJSONLayer = L.geoJSON(data).addTo(basemap);
+            console.log("GeoJSON has been added.")
+        });
 }

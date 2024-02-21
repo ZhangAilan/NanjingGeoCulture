@@ -9,9 +9,15 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
+import os
+if os.name == 'nt':
+    OSGEO4W = r"C:\OSGeo4W"
+    os.environ['OSGEO4W_ROOT'] = OSGEO4W
+    os.environ['GDAL_DATA'] = OSGEO4W + r"\share\gdal"
+    os.environ['PROJ_LIB'] = OSGEO4W + r"\share\proj"
+    os.environ['PATH'] = OSGEO4W + r"\bin;" + os.environ['PATH']
 
 from pathlib import Path
-import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
@@ -38,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.gis',
     'shp',
 ]
 
@@ -78,15 +85,26 @@ WSGI_APPLICATION = 'NanjingGeoCulture.wsgi.application'
 DATABASES = {
     'default': {
         # 'ENGINE': 'django.db.backends.sqlite3',
-        # 'NAME': BASE_DIR / 'db.sqlite3',
-        'ENGINE': 'django.db.backends.mysql',   # 数据库引擎
-        'NAME': 'njgc',  # 数据库名，先前创建的
-        'USER': 'root',     # 用户名，可以自己创建用户
-        'PASSWORD': '123',  # 密码
-        'HOST': '192.168.75.1',  # mysql服务所在的主机ip
-        'PORT': '3306',         # mysql服务端口
+        # 'NAME': BASE_DIR / 'db.sqlite3',  #如果无需地理数据就把关于gis模块去掉，直接用sqlite3数据库
+
+        # #决定不使用mysql，conda配置环境时mysqlclient一直显示版本过低，若使用pip安装则与conda冲突
+        # 'ENGINE': 'django.db.backends.mysql',   # 数据库引擎
+        # 'NAME': 'njgc',  # 数据库名，先前创建的
+        # 'USER': 'root',     # 用户名，可以自己创建用户
+        # 'PASSWORD': '123',  # 密码
+        # 'HOST': '192.168.75.1',  # mysql服务所在的主机ip
+        # 'PORT': '3306',         # mysql服务端口 
+
+        'ENGINE': 'django.contrib.gis.db.backends.postgis',
+        'NAME': 'njgc',  
+        'USER': 'postgres',
+        'PASSWORD': '123',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
+
+GDAL_LIBRARY_PATH = r"C:\\OSGeo4W\\bin\\gdal308.dll" # 定位到dll文件
 
 
 # Password validation
