@@ -24,7 +24,6 @@
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-          
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item" style="width: 30px;">
@@ -47,7 +46,7 @@
             
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 20px; color: white;">底图</a>
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 20px; color: white;">地图样式</a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
                             <a class="dropdown-item" href="#" onclick="changeMap('map1')" style="font-size: 20px; color: black; text-align: center;">OpenStreetMap</a>
                             <div class="dropdown-divider"></div> <!-- 添加分隔线 -->
@@ -58,32 +57,40 @@
                             <a class="dropdown-item" href="#" onclick="changeMap('map4')" style="font-size: 20px; color: black; text-align: center;">DarkMatter</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#" onclick="changeMap('map5')" style="font-size: 20px; color: black; text-align: center;">Positron</a>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 20px; color: white;">专题</a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
-                            <!-- 下拉菜单内容 -->
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 20px; color: white;">要素</a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown3">
+                            <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#" onclick="addGeoJSONLayer('static/feature/region.json')" style="font-size: 20px; color: black; text-align: center;">行政区划</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#" style="font-size: 20px; color: black; text-align: center;">交通线路</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#" style="font-size: 20px; color: black; text-align: center;">高等院校</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#" style="font-size: 20px; color: black; text-align: center;">名胜古迹</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#" style="font-size: 20px; color: black; text-align: center;">博物馆</a>
                         </div>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown4" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 20px; color: white;">工具</a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown4">
-                            <!-- 下拉菜单内容 -->
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 20px; color: white;">主题探索</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
+                            <a class="dropdown-item" href="#" onclick="addGeoJSONLayer('static/feature/南京文学地图.geojson')" style="font-size: 20px; color: black; text-align: center;">南京文学地图</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#" onclick="addGeoJSONLayer('static/feature/寺庙.geojson')" style="font-size: 20px; color: black; text-align: center;">古今地名考</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#" onclick="addGeoJSONLayer('static/feature/国立中央大学.geojson')" style="font-size: 20px; color: black; text-align: center;">国立中央大学</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#" onclick="addGeoJSONLayer('static/feature/前朝旧都.geojson')" style="font-size: 20px; color: black; text-align: center;">前朝旧都</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#" onclick="addGeoJSONLayer('static/feature/1937.geojson')" style="font-size: 20px; color: black; text-align: center;">1937</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#" onclick="addGeoJSONLayer('static/feature/六朝余韵.geojson')" style="font-size: 20px; color: black; text-align: center;">六朝遗韵</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#" onclick="addGeoJSONLayer('static/feature/四百八十寺.geojson')" style="font-size: 20px; color: black; text-align: center;">四百八十寺</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#" onclick="addGeoJSONLayer('static/feature/寺庙.geojson')" style="font-size: 20px; color: black; text-align: center;">大明终始</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#" onclick="addGeoJSONLayer('static/feature/里十三外十八.geojson')" style="font-size: 20px; color: black; text-align: center;">里十三外十八</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#" style="font-size: 20px; color: black; text-align: center;">萝铁（三期规划）</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#" style="font-size: 20px; color: black; text-align: center;">上局宁东段</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#" style="font-size: 20px; color: black; text-align: center;">高教第三城</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#" style="font-size: 20px; color: black; text-align: center;">山水城林</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#" style="font-size: 20px; color: black; text-align: center;">博物馆在南京</a>
                         </div>
                     </li>
                     <li class="nav-item">
@@ -106,7 +113,7 @@
         </div>
         <div class="offcanvas-body">
             <div style="font-size: 18px;">
-              写一下关于本系统在展示南京历史与文化的功能
+              写一下关于本系统在展示南京历史与文化的功能，高级功能
             </div>
             <div class="list-group mt-3">
                 <a href="#" class="list-group-item list-group-item-action" style="font-size: 20px;">历史地图</a>
@@ -122,7 +129,49 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-body">
-                    写下对于本项目的介绍
+                    <h1>Start Form</h1>
+                    <form method="POST" action="">
+                        {% csrf_token %}
+                        <div id="tag-container">
+                            <!-- 旅游标签 -->
+                            <div class="travel-tag">Destination 1</div>
+                            <div class="travel-tag">Destination 2</div>
+                            <div class="travel-tag">Destination 3</div>
+                            <div class="travel-tag">Destination 4</div>
+                            <div class="travel-tag">Destination 5</div>
+                            <div class="travel-tag">Destination 6</div>
+                            <div class="travel-tag">Destination 7</div>
+                            <div class="travel-tag">Destination 8</div>
+                            <div class="travel-tag">Destination 9</div>
+                            <div class="travel-tag">Destination 10</div>
+                        </div>
+                        <!-- 提交按钮 -->
+                        <button id="submit-btn" class="submit-btn">Submit</button>
+                    </form>
+                    <script>
+                        // 获取标签和按钮
+                        var travelTags = document.querySelectorAll('.travel-tag');
+                        var submitBtn = document.getElementById('submit-btn');
+                
+                        // 点击标签时切换样式
+                        travelTags.forEach(function(tag) {
+                            tag.addEventListener('click', function() {
+                                this.classList.toggle('selected');
+                            });
+                        });
+                
+                        // 悬浮效果
+                        submitBtn.addEventListener('mouseover', function() {
+                            travelTags.forEach(function(tag) {
+                                tag.classList.add('hover-effect');
+                            });
+                        });
+                        submitBtn.addEventListener('mouseout', function() {
+                            travelTags.forEach(function(tag) {
+                                tag.classList.remove('hover-effect');
+                            });
+                        });
+                    </script>
                 </div>
             </div>
         </div>
@@ -146,5 +195,6 @@
 
     <!-- 更改底图/专题/要素 -->
     <script src="{% static 'js/map_change.js' %}"></script>
+    
 </body>
 </html>

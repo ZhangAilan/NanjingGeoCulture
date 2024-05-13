@@ -1,12 +1,55 @@
-/* 下拉式菜单内容 */
+/* ------------------------------下拉式菜单内容-------------------------------- */
 .dropdown-item {
     font-size: 20px;
     color: black;
     text-align: center;
 }
 
-/* 主页面地图样式 */
+/* ------------------------------主页面地图样式-------------------------------- */
 #map{
     height: 100%;
     width: 100%;
+}
+
+/* ------------------------------个性推荐模态框样式---------------------------- */
+.travel-tag {
+    display: inline-block;
+    margin: 5px;
+    padding: 10px 20px;
+    border: 2px solid transparent;
+    border-radius: 30px; /* 增加圆角弧度 */
+    background-color: transparent;
+    color: black;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.travel-tag.selected {
+    background-color: lightgreen;
+    border-color: green;
+    color: white;
+}
+
+/* 提交按钮样式 */
+.submit-btn {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    border: 2px solid transparent;
+    border-radius: 20px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+/* 悬浮效果 */
+.submit-btn:hover ~ .travel-tag {
+    transform: translate(-10px, -10px);
+    transition: all 0.3s ease;
 }
