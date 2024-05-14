@@ -12,6 +12,11 @@
 }
 
 /* ------------------------------个性推荐模态框样式---------------------------- */
+/* 居中标题 */
+h1 {
+    text-align: center;
+}
+
 .travel-tag {
     display: inline-block;
     margin: 5px;
@@ -22,6 +27,13 @@
     color: black;
     cursor: pointer;
     transition: all 0.3s ease;
+}
+
+#tag-container {
+    display: flex;
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+    flex-wrap: wrap; /* 如果标签过多，自动换行 */
 }
 
 .travel-tag.selected {
@@ -53,3 +65,32 @@
     transform: translate(-10px, -10px);
     transition: all 0.3s ease;
 }
+
+/* 进度条容器样式 */
+.progress-container {
+    display: none;
+    width: 100%;
+    height: 20px;
+    background-color: #f3f3f3;
+    border: 2px solid black;
+    border-radius: 4px;
+    margin-top: 20px;
+    overflow: hidden;
+}
+
+/* 进度条样式 */
+.progress-bar {
+    height: 100%;
+    background-color: green; /* 设置填充色 */
+    animation: fill 2s forwards; /* 使用动画效果填充 */
+}
+
+@keyframes fill {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
