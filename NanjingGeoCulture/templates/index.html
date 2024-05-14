@@ -58,31 +58,32 @@
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#" onclick="changeMap('map5')" style="font-size: 20px; color: black; text-align: center;">Positron</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#" onclick="addGeoJSONLayer('static/feature/region.json')" style="font-size: 20px; color: black; text-align: center;">行政区划</a>
+                            <a class="dropdown-item" href="#" onclick="addPersistentGeoJSONLayer('static/feature/region.json')" style="font-size: 20px; color: black; text-align: center;">行政区划</a>
                         </div>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 20px; color: white;">主题探索</a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
-                            <a class="dropdown-item" href="#" onclick="addGeoJSONLayer('static/feature/南京文学地图.geojson')" style="font-size: 20px; color: black; text-align: center;">南京文学地图</a>
+                            <a class="dropdown-item" href="#" onclick="addGeoJSONLayers('static/feature/南京文学地图.geojson')" style="font-size: 20px; color: black; text-align: center;">南京文学地图</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#" onclick="addGeoJSONLayer('static/feature/寺庙.geojson')" style="font-size: 20px; color: black; text-align: center;">古今地名考</a>
+                            <a class="dropdown-item" href="#" onclick="addGeoJSONLayers('static/feature/寺庙.geojson')" style="font-size: 20px; color: black; text-align: center;">古今地名考</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#" onclick="addGeoJSONLayer('static/feature/国立中央大学.geojson')" style="font-size: 20px; color: black; text-align: center;">国立中央大学</a>
+                            <a class="dropdown-item" href="#" onclick="addGeoJSONLayers('static/feature/国立中央大学.geojson')" style="font-size: 20px; color: black; text-align: center;">国立中央大学</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#" onclick="addGeoJSONLayer('static/feature/前朝旧都.geojson')" style="font-size: 20px; color: black; text-align: center;">前朝旧都</a>
+                            <a class="dropdown-item" href="#" onclick="addGeoJSONLayers('static/feature/前朝旧都.geojson')" style="font-size: 20px; color: black; text-align: center;">前朝旧都</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#" onclick="addGeoJSONLayer('static/feature/1937.geojson')" style="font-size: 20px; color: black; text-align: center;">1937</a>
+                            <a class="dropdown-item" href="#" onclick="addGeoJSONLayers('static/feature/1937.geojson')" style="font-size: 20px; color: black; text-align: center;">1937</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#" onclick="addGeoJSONLayer('static/feature/六朝余韵.geojson')" style="font-size: 20px; color: black; text-align: center;">六朝遗韵</a>
+                            <a class="dropdown-item" href="#" onclick="addGeoJSONLayers('static/feature/六朝余韵.geojson')" style="font-size: 20px; color: black; text-align: center;">六朝遗韵</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#" onclick="addGeoJSONLayer('static/feature/四百八十寺.geojson')" style="font-size: 20px; color: black; text-align: center;">四百八十寺</a>
+                            <a class="dropdown-item" href="#" onclick="addGeoJSONLayers('static/feature/.geojson')" style="font-size: 20px; color: black; text-align: center;">四百八十寺</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#" onclick="addGeoJSONLayer('static/feature/寺庙.geojson')" style="font-size: 20px; color: black; text-align: center;">大明终始</a>
+                            <a class="dropdown-item" href="#" onclick="addGeoJSONLayers('static/feature/大明终始.geojson')" style="font-size: 20px; color: black; text-align: center;">大明终始</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#" onclick="addGeoJSONLayer('static/feature/里十三外十八.geojson')" style="font-size: 20px; color: black; text-align: center;">里十三外十八</a>
+                            <a class="dropdown-item" href="#" onclick="addGeoJSONLayers('static/feature/里十三外十八.geojson')" style="font-size: 20px; color: black; text-align: center;">里十三外十八</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#" style="font-size: 20px; color: black; text-align: center;">萝铁（三期规划）</a>
+                            <a class="dropdown-item" href="#" onclick="addGeoJSONLayers('static/feature/SubWayPoint.geojson','static/feature/SubWayLine.geojson',function(feature, latlng) {
+                                return L.circleMarker(latlng, {radius: 5,fillOpacity: 1});})" style="font-size: 20px; color: black; text-align: center;">南京地铁</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#" style="font-size: 20px; color: black; text-align: center;">上局宁东段</a>
                             <div class="dropdown-divider"></div>
@@ -180,6 +181,20 @@
     <!-- 用户的侧边栏 -->
     <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasUser" aria-labelledby="offcanvasExampleLabel">
 
+    </div>
+
+    <!-- 标签交互侧边栏 -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasLabel" aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title text-center"><strong>中山陵</strong></h5>
+            <hr> <!-- 横向分割线 -->
+        </div>
+        <div class="offcanvas-body">
+            <img src="static\images\zsl.jpg" alt="中山陵博爱坊" style="max-width: 100%; height: auto;"> <!-- 图片 -->
+            <p> 中山陵位于江苏省南京市玄武区紫金山南麓钟山风景名胜区内，是中国近代伟大的民主革命先行者孙中山先生的陵寝及其附属纪念建筑群，陵寝面积8万余平方米，于1926年春动工，至1929年夏建成。</p>
+            <p>中山陵前临平川，背拥青嶂，东毗灵谷寺，西邻明孝陵，整个建筑群依山势而建，由南往北沿中轴线逐渐升高，主要建筑有博爱坊、墓道、陵门、石阶、碑亭、祭堂和墓室等，排列在一条中轴线上，体现了中国传统建筑的风格，从空中往下看，像一座平卧在绿绒毯上的“自由钟”。中山陵建筑融汇中国古代与西方建筑之精华，庄严简朴，别创新格。</p>
+            <p>中山陵各建筑在型体组合、色彩运用、材料表现和细部处理上均取得极好的效果，中山陵音乐台、光华亭、流徽榭、仰止亭、藏经楼、行健亭、永丰社、永慕庐、中山书院等建筑众星捧月般环绕在陵墓周围，构成中山陵景区的主要景观，色调和谐统一更增强了庄严的气氛，既有深刻的含意，又有宏伟的气势，且均为建筑名家之杰作，有着极高的艺术价值，被誉为“中国近代建筑史上第一陵”。</p> <!-- 文本 -->
+        </div>
     </div>
 
     <!-- 引入Bootstrap的JavaScript文件（jQuery必须在Bootstrap之前引入） -->

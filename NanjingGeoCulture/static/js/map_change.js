@@ -57,20 +57,93 @@ function changeMap(mapType){
     console.log("Map has been changed.")
 }
 
+//添加GeoJSON图层(一直保留在地图上)
+var persistentGeoJSONLayer;
 
-//导航栏：要素
-var geoJSONLayer;
-
-function addGeoJSONLayer(filepath){
-    console.log("GeoJSON is being added.")
-    if(geoJSONLayer){
-        basemap.removeLayer(geoJSONLayer);
-        console.log("GeoJSON has been removed.")
+function addPersistentGeoJSONLayer(filepath){
+    console.log("Persistent GeoJSON is being added.")
+    if(persistentGeoJSONLayer){
+        basemap.removeLayer(persistentGeoJSONLayer);
+        console.log("Old persistent GeoJSON has been removed.")
     }
     fetch(filepath)
         .then(response => response.json())
         .then(data => {
-            geoJSONLayer = L.geoJSON(data).addTo(basemap);
-            console.log("GeoJSON has been added.")
+            persistentGeoJSONLayer = L.geoJSON(data, {
+                style: function(feature) {
+                    return {color: "#75E5FF"};  // 设置颜色为蓝色
+                },
+                pointToLayer: function (feature, latlng) {
+                    return L.marker(latlng);
+                },
+                onEachFeature: function (feature, layer) {
+                    layer.on('click', function () {
+                        var offcanvasElement = document.getElementById('offcanvasLabel');
+                        var bsOffcanvas = new bootstrap.Offcanvas(offcanvasElement);
+                        bsOffcanvas.show();
+                    });
+                }
+            }).addTo(basemap);
+            console.log("Persistent GeoJSON has been added.")
         });
 }
+
+
+//导航栏：要素组合  （两个geojson文件）
+
+var geoJSONLayer1, geoJSONLayer2;
+
+function addGeoJSONLayers(filepath1, filepath2 = null, pointStyle = null){
+    console.log("GeoJSON is being added.")
+    if(geoJSONLayer1){
+        basemap.removeLayer(geoJSONLayer1);
+        console.log("GeoJSON 1 has been removed.")
+    }
+    if(geoJSONLayer2){
+        basemap.removeLayer(geoJSONLayer2);
+        console.log("GeoJSON 2 has been removed.")
+    }
+    if(filepath2){
+        fetch(filepath2)
+            .then(response => response.json())
+            .then(data => {
+                geoJSONLayer1 = L.geoJSON(data, {
+                    style: function(feature) {
+                        return {color: "#FF8092"};  // 设置颜色
+                    },
+                    pointToLayer: function (feature, latlng) {
+                        return pointStyle ? pointStyle(feature, latlng) : L.marker(latlng);
+                    },
+                    onEachFeature: function (feature, layer) {
+                        layer.on('click', function () {
+                            var offcanvasElement = document.getElementById('offcanvasLabel');
+                            var bsOffcanvas = new bootstrap.Offcanvas(offcanvasElement);
+                            bsOffcanvas.show();
+                        });
+                    }
+                }).addTo(basemap).bringToFront();
+                console.log("GeoJSON 1 has been added.")
+            });
+    }
+    fetch(filepath1)
+    .then(response => response.json())
+    .then(data => {
+        geoJSONLayer2 = L.geoJSON(data, {
+            style: function(feature) {
+                return {color: "#8A84FF"};  // 设置颜色
+            },
+            pointToLayer: function (feature, latlng) {
+                return pointStyle ? pointStyle(feature, latlng) : L.marker(latlng);
+            },
+            onEachFeature: function (feature, layer) {
+                layer.on('click', function () {
+                    var offcanvasElement = document.getElementById('offcanvasLabel');
+                    var bsOffcanvas = new bootstrap.Offcanvas(offcanvasElement);
+                    bsOffcanvas.show();
+                });
+            }
+        }).addTo(basemap).bringToFront();
+        console.log("GeoJSON 2 has been added.")
+    });    
+    }
+   
