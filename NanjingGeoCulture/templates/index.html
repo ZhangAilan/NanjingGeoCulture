@@ -212,8 +212,41 @@
 
     <!-- 用户的侧边栏 -->
     <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasUser" aria-labelledby="offcanvasExampleLabel">
-
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasExampleLabel" style="font-size: 30px;">
+                <img class="rounded-circle" src="{% static 'images/ZifengTower.jpg' %}" style="margin-right: 10px; width: 30px; height: 30px;">用户信息
+            </h5>    
+        </div>
+        <div class="offcanvas-body">  
+            <div style="font-size: 18px;">
+                用户设置
+            </div>
+            <div class="list-group mt-3">
+                <a href="#" class="list-group-item list-group-item-action" style="font-size: 20px;" id="personalInfoButton">个人信息管理</a>
+                <a href="#" class="list-group-item list-group-item-action" style="font-size: 20px;">账户设置</a>
+                <a href="#" class="list-group-item list-group-item-action" style="font-size: 20px;">消息中心</a>
+                <a href="#" class="list-group-item list-group-item-action" style="font-size: 20px;">收藏夹</a>
+                <a href="#" class="list-group-item list-group-item-action" style="font-size: 20px;">用户注册</a>
+                <a href="#" class="list-group-item list-group-item-action" style="font-size: 20px;">分享功能</a>
+                <a href="#" class="list-group-item list-group-item-action" style="font-size: 20px;">帮助和支持</a>
+            </div>
+            <!-- 退出登录按钮 -->
+            <button class="btn btn-outline-secondary btn-lg mt-3" id="logoutButton" style="font-size: 20px; width: 100%;">退出登录</button>
+        </div>
     </div>
+    <style>
+        /* 点击时按钮颜色加深 */
+        #logoutButton:active {
+            background-color: #b3b3b3; /* 这里可以根据需要调整点击时的颜色 */
+        }
+    </style>
+    <script>
+        // 添加退出登录按钮点击事件
+        document.getElementById('logoutButton').addEventListener('click', function() {
+            // 这里可以添加退出登录的逻辑，比如清除用户登录状态等
+            alert('您已退出登录！');
+        });
+    </script>
 
     <!-- 标签交互侧边栏 -->
     <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasLabel" aria-labelledby="offcanvasExampleLabel">
