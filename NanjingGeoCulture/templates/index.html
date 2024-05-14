@@ -41,7 +41,8 @@
             
                 <form class="form-inline my-2 my-lg-0 mx-auto">
                     <input class="form-control mr-sm-2" type="search" placeholder="Everything about Nanjing..." aria-label="Search" style="width: 300px;">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">搜索</button>
+                    <button class="btn btn-outline-success my-2 my-sm-0 mr-2" type="submit">搜索</button>
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="button">个性化旅游推荐</button>
                 </form>
             
                 <ul class="navbar-nav ml-auto">
@@ -129,25 +130,33 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-body">
-                    <h1>Start Form</h1>
+                    <h1>选择您的旅游标签</h1>
                     <form method="POST" action="">
                         {% csrf_token %}
                         <div id="tag-container">
                             <!-- 旅游标签 -->
-                            <div class="travel-tag">Destination 1</div>
-                            <div class="travel-tag">Destination 2</div>
-                            <div class="travel-tag">Destination 3</div>
-                            <div class="travel-tag">Destination 4</div>
-                            <div class="travel-tag">Destination 5</div>
-                            <div class="travel-tag">Destination 6</div>
-                            <div class="travel-tag">Destination 7</div>
-                            <div class="travel-tag">Destination 8</div>
-                            <div class="travel-tag">Destination 9</div>
-                            <div class="travel-tag">Destination 10</div>
+                            <div class="travel-tag">古迹</div>
+                            <div class="travel-tag">风景</div>
+                            <div class="travel-tag">美食</div>
+                            <div class="travel-tag">文学</div>
+                            <div class="travel-tag">大学</div>
+                            <div class="travel-tag">工业</div>
+                            <div class="travel-tag">都市</div>
+                            <div class="travel-tag">田园</div>
+                            <div class="travel-tag">民俗</div>
+                            <div class="travel-tag">宗教</div>
+                            <div class="travel-tag">科技</div>
+                            <div class="travel-tag">红色</div>
+                            <div class="travel-tag">博物馆</div>
+                            <div class="travel-tag">City Walk</div>
                         </div>
                         <!-- 提交按钮 -->
-                        <button id="submit-btn" class="submit-btn">Submit</button>
+                        <button id="submit-btn" class="submit-btn" type="button">生成模型</button>
                     </form>
+                    <!-- 进度条 -->
+                    <div id="progress-container" class="progress-container">
+                        <div id="progress-bar" class="progress-bar"></div>
+                    </div>
                     <script>
                         // 获取标签和按钮
                         var travelTags = document.querySelectorAll('.travel-tag');
@@ -170,6 +179,29 @@
                             travelTags.forEach(function(tag) {
                                 tag.classList.remove('hover-effect');
                             });
+                        });
+
+                        // 进度条
+                        document.getElementById('submit-btn').addEventListener('click', function() {
+                            var progressContainer = document.getElementById('progress-container');
+                            var progressBar = document.getElementById('progress-bar');
+
+                            // 显示进度条容器
+                            progressContainer.style.display = 'block';
+
+                            // 开始进度条动画
+                            progressBar.style.width = '0%'; // 重置进度条
+                            setTimeout(function() {
+                                progressBar.style.width = '100%';
+                            }, 10); // 设置时间为10毫秒，以便立即触发动画
+
+                            // 模拟加载过程（2秒后隐藏进度条）
+                            setTimeout(function() {
+                                // 加载完成后隐藏进度条
+                                progressContainer.style.display = 'none';
+                                progressBar.style.width = '0%'; // 重置进度条
+                                console.log('加载完成！');
+                            }, 2000); // 设置时间为2秒
                         });
                     </script>
                 </div>
