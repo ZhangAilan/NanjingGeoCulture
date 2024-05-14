@@ -65,39 +65,51 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 20px; color: white;">主题探索</a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
-                            <a class="dropdown-item" href="#" onclick="addGeoJSONLayers('static/feature/南京文学地图.geojson')" style="font-size: 20px; color: black; text-align: center;">南京文学地图</a>
+                            <a class="dropdown-item" href="#" style="font-size: 20px; color: black; text-align: center;">时间穿梭地图</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#" onclick="addGeoJSONLayers('static/feature/寺庙.geojson')" style="font-size: 20px; color: black; text-align: center;">古今地名考</a>
+                            <a class="dropdown-item dropdown-toggle" href="#" id="themeExhibition" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 20px; color: black; text-align: center;">主题展览</a>
+                            <div class="dropdown-menu" aria-labelledby="themeExhibition">
+                                <a class="dropdown-item custom-item" href="#" onclick="addGeoJSONLayers('static/feature/南京文学地图.geojson')" style="font-size: 20px; color: black; text-align: center;">南京文学地图</a>
+                                <a class="dropdown-item custom-item" href="#" onclick="addGeoJSONLayers('static/feature/国立中央大学.geojson')" style="font-size: 20px; color: black; text-align: center;">国立中央大学</a>
+                                <a class="dropdown-item custom-item" href="#" onclick="addGeoJSONLayers('static/feature/寺庙.geojson')" style="font-size: 20px; color: black; text-align: center;">古今地名考</a>
+                                <a class="dropdown-item custom-item" href="#" onclick="addGeoJSONLayers('static/feature/前朝旧都.geojson')" style="font-size: 20px; color: black; text-align: center;">前朝旧都</a>
+                                <a class="dropdown-item custom-item" href="#" onclick="addGeoJSONLayers('static/feature/1937.geojson')" style="font-size: 20px; color: black; text-align: center;">1937</a>
+                                <a class="dropdown-item custom-item" href="#" onclick="addGeoJSONLayers('static/feature/六朝余韵.geojson')" style="font-size: 20px; color: black; text-align: center;">六朝遗韵</a>
+                                <a class="dropdown-item custom-item" href="#" onclick="addGeoJSONLayers('static/feature/.geojson')" style="font-size: 20px; color: black; text-align: center;">四百八十寺</a>
+                                <a class="dropdown-item custom-item" href="#" onclick="addGeoJSONLayers('static/feature/大明终始.geojson')" style="font-size: 20px; color: black; text-align: center;">大明终始</a>
+                                <a class="dropdown-item custom-item" href="#" onclick="addGeoJSONLayers('static/feature/里十三外十八.geojson')" style="font-size: 20px; color: black; text-align: center;">里十三外十八</a>
+                                <a class="dropdown-item custom-item" href="#" onclick="addGeoJSONLayers('static/feature/SubWayPoint.geojson','static/feature/SubWayLine.geojson',function(feature, latlng) { return L.circleMarker(latlng, {radius: 5,fillOpacity: 1});})" style="font-size: 20px; color: black; text-align: center;">南京地铁</a>
+                                <a class="dropdown-item" href="#" style="font-size: 20px; color: black; text-align: center;">上局宁东段</a>
+                                <a class="dropdown-item" href="#" style="font-size: 20px; color: black; text-align: center;">高教第三城</a>
+                                <a class="dropdown-item" href="#" style="font-size: 20px; color: black; text-align: center;">山水城林</a>
+                                <a class="dropdown-item" href="#" style="font-size: 20px; color: black; text-align: center;">博物馆在南京</a>
+                            </div>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#" onclick="addGeoJSONLayers('static/feature/国立中央大学.geojson')" style="font-size: 20px; color: black; text-align: center;">国立中央大学</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#" onclick="addGeoJSONLayers('static/feature/前朝旧都.geojson')" style="font-size: 20px; color: black; text-align: center;">前朝旧都</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#" onclick="addGeoJSONLayers('static/feature/1937.geojson')" style="font-size: 20px; color: black; text-align: center;">1937</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#" onclick="addGeoJSONLayers('static/feature/六朝余韵.geojson')" style="font-size: 20px; color: black; text-align: center;">六朝遗韵</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#" onclick="addGeoJSONLayers('static/feature/.geojson')" style="font-size: 20px; color: black; text-align: center;">四百八十寺</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#" onclick="addGeoJSONLayers('static/feature/大明终始.geojson')" style="font-size: 20px; color: black; text-align: center;">大明终始</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#" onclick="addGeoJSONLayers('static/feature/里十三外十八.geojson')" style="font-size: 20px; color: black; text-align: center;">里十三外十八</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#" onclick="addGeoJSONLayers('static/feature/SubWayPoint.geojson','static/feature/SubWayLine.geojson',function(feature, latlng) {
-                                return L.circleMarker(latlng, {radius: 5,fillOpacity: 1});})" style="font-size: 20px; color: black; text-align: center;">南京地铁</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#" style="font-size: 20px; color: black; text-align: center;">上局宁东段</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#" style="font-size: 20px; color: black; text-align: center;">高教第三城</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#" style="font-size: 20px; color: black; text-align: center;">山水城林</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#" style="font-size: 20px; color: black; text-align: center;">博物馆在南京</a>
+                            <a class="dropdown-item" href="#" style="font-size: 20px; color: black; text-align: center;">文化游览路线</a>
                         </div>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" data-bs-toggle="offcanvas" href="#offcanvasUser" role="button" aria-controls="offcanvasExample"><i class="fa fa-user" style="font-size: 30px; color: white;"></i></a>
                     </li>
+                    <script>
+                        function toggleDropdown() {
+                            var dropdownMenu = document.getElementById("themeExhibition");
+                            if (dropdownMenu.style.display === "none" || dropdownMenu.style.display === "") {
+                                dropdownMenu.style.display = "block";
+                            } else {
+                                dropdownMenu.style.display = "none";
+                            }
+                        }
+                        
+                        // 在菜单外点击时隐藏菜单
+                        document.addEventListener("click", function(event) {
+                            var dropdownMenu = document.getElementById("themeExhibition");
+                            var button = document.querySelector(".btn.btn-primary");
+                            if (!button.contains(event.target) && !dropdownMenu.contains(event.target)) {
+                                dropdownMenu.style.display = "none";
+                            }
+                        });
+                    </script>
                 </ul>
             </div>
         </nav>
@@ -120,8 +132,8 @@
             <div class="list-group mt-3">
                 <a href="#" class="list-group-item list-group-item-action" style="font-size: 20px;">历史地图</a>
                 <a href="#" class="list-group-item list-group-item-action" style="font-size: 20px;">历史事件</a>
-                <a href="#" class="list-group-item list-group-item-action" style="font-size: 20px;">时间线</a>
-                <a href="#" class="list-group-item list-group-item-action" style="font-size: 20px;">博客（RSS）</a>
+                <a href="#" class="list-group-item list-group-item-action" style="font-size: 20px;">虚拟导览体验</a>
+                <a href="#" class="list-group-item list-group-item-action" style="font-size: 20px;">历史文化社区</a>
             </div>
         </div>
     </div>

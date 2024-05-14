@@ -94,3 +94,8 @@ h1 {
     }
 }
 
+.custom-item:hover {
+    background-color: #343a40; /* 深灰色 */
+    color: white; /* 白色 */
+}
+
