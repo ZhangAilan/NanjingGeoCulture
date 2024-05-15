@@ -42,7 +42,7 @@
                 <form class="form-inline my-2 my-lg-0 mx-auto">
                     <input class="form-control mr-sm-2" type="search" placeholder="Everything about Nanjing..." aria-label="Search" style="width: 300px;">
                     <button class="btn btn-outline-success my-2 my-sm-0 mr-2" type="submit">搜索</button>
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="button">个性化旅游推荐</button>
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="addGeoJSONLayers('static/feature/南京文学地图.geojson','static/feature/推荐.geojson',function(feature, latlng) { return L.circleMarker(latlng, {radius: 5,fillOpacity: 1});})">个性化旅游推荐</button>
                 </form>
             
                 <ul class="navbar-nav ml-auto">
@@ -122,17 +122,16 @@
     <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasMenu" aria-labelledby="offcanvasExampleLabel">
         <div class="offcanvas-header">
             <h5 class="offcanvas-title" id="offcanvasExampleLabel" style="font-size: 30px;">
-                <img class="rounded-circle" src="{% static 'images/ZifengTower.jpg' %}" style="margin-right: 10px; width: 30px; height: 30px;">概况其他功能
+                <img class="rounded-circle" src="{% static 'images/ZifengTower.jpg' %}" style="margin-right: 10px; width: 30px; height: 30px;">探索
             </h5>    
         </div>
         <div class="offcanvas-body">
             <div style="font-size: 18px;">
-              写一下关于本系统在展示南京历史与文化的功能，高级功能
+              More about Nanjing...
             </div>
             <div class="list-group mt-3">
                 <a href="#" class="list-group-item list-group-item-action" style="font-size: 20px;">历史地图</a>
                 <a href="#" class="list-group-item list-group-item-action" style="font-size: 20px;">历史事件</a>
-                <a href="#" class="list-group-item list-group-item-action" style="font-size: 20px;">虚拟导览体验</a>
                 <a href="#" class="list-group-item list-group-item-action" style="font-size: 20px;">历史文化社区</a>
             </div>
         </div>
@@ -271,6 +270,9 @@
             <p> 中山陵位于江苏省南京市玄武区紫金山南麓钟山风景名胜区内，是中国近代伟大的民主革命先行者孙中山先生的陵寝及其附属纪念建筑群，陵寝面积8万余平方米，于1926年春动工，至1929年夏建成。</p>
             <p>中山陵前临平川，背拥青嶂，东毗灵谷寺，西邻明孝陵，整个建筑群依山势而建，由南往北沿中轴线逐渐升高，主要建筑有博爱坊、墓道、陵门、石阶、碑亭、祭堂和墓室等，排列在一条中轴线上，体现了中国传统建筑的风格，从空中往下看，像一座平卧在绿绒毯上的“自由钟”。中山陵建筑融汇中国古代与西方建筑之精华，庄严简朴，别创新格。</p>
             <p>中山陵各建筑在型体组合、色彩运用、材料表现和细部处理上均取得极好的效果，中山陵音乐台、光华亭、流徽榭、仰止亭、藏经楼、行健亭、永丰社、永慕庐、中山书院等建筑众星捧月般环绕在陵墓周围，构成中山陵景区的主要景观，色调和谐统一更增强了庄严的气氛，既有深刻的含意，又有宏伟的气势，且均为建筑名家之杰作，有着极高的艺术价值，被誉为“中国近代建筑史上第一陵”。</p> <!-- 文本 -->
+        </div>
+        <div class="offcanvas-footer">
+            <a href="https://earth.google.com/web/@32.0641577,118.8483371,157.59321576a,0d,60y,104.14661995h,85.26174418t,0r/data=IjAKLEFGMVFpcFBKREktay1hdHd4ZHR4UFVnWlBlS1dtWDJ1ck1vNkpaeTJQdkctEAU6AwoBMA" class="list-group-item list-group-item-action" style="font-size: 20px;">虚拟导览体验</a>
         </div>
     </div>
 
